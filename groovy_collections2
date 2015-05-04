@@ -1,0 +1,121 @@
+q1
+Set s= [2,2,2,3,4,5,3,3,7] as Set
+
+println("returning the set values"+s)
+
+List l= [2,2,2,3,4,5,3,3,7]
+print "returning a unique list"
+l.unique()
+
+
+q2
+Range r= 1..10
+println r.from
+println r.to
+r.getAt(1)
+
+
+q4
+Map m= new LinkedHashMap()
+ m = [1:'a',2:'b',(true):'p']
+
+Map m1= [95:'maths',82:'physics',85:'chemistry']
+
+Map m3 = m1+m
+
+println m3
+
+
+q5
+Map m = [1:'a',2:'b',3:'c']
+
+println m.class //this shows the null
+
+println m.getClass()// this shows the library files of java util package
+
+q6
+Map m=['1' : 2, '2' : 3, '3' : 4, '2':5]
+
+println m // when we print the map, the  value of key [2] i.e 3 overwriiten by value 5
+/* the key 2 is written with both 3 and 5
+but it will take the last value attached with key,
+it is not the valid construction coz the key for each value
+should be different
+*/
+
+
+q7
+Map m = [
+           'Computing'  : ['Computing': 600,'Information Systems':300],
+           'Engineering': ['Civil': 200, 'Mechanical': 100],
+           'Management' : ['Management': 800]
+        ]
+println "the no. of departments"
+println m.size()
+println m.keySet()// no. of departments
+
+
+println "\nthe no. programs delivered by Computing dept."
+println m.get('Computing')//  programs delivered by computing departments
+println m['Computing'].size()
+
+
+println "\nthe no. of students enrolled in civil"
+println m['Engineering'].'Civil'.value// no. of students enrolled
+
+
+q8
+Map m = ['1' : 2, '2' : 3, '3' : 4, '2':5] 
+println m// VALID
+println m['2']// PRINT 5
+
+q9
+class Employee
+{
+  String Name;
+  byte age;
+  String dept;
+  int e_no;
+  int salary;
+}
+Employee e1=new Employee(name:'GARIMA',age:23 as byte,dept:'Finance',e_no:101,salary:20000)
+Employee e2=new Employee(name:'kunal',age:53 as byte,dept:'Marketing',e_no:102,salary:2000)
+Employee e3=new Employee(name:'pallo',age:83 as byte,dept:'Manufacturing',e_no:103,salary:3000)
+Employee e4=new Employee(name:'Simran',age:13 as byte,dept:'Marketing',e_no:104,salary:4000)
+Employee e5=new Employee(name:'Mohit',age:53 as byte,dept:'Manufacturing',e_no:105,salary:6000)
+List l=[e1,e2,e3,e4,e5]
+println "Sol1"
+Map m1=l.groupBy({
+     if((it.salary>=0) && (it.salary<=5000))
+     return "Within 5000";
+     else if((it.salary>5000) && (it.salary<=10000)) 
+     return "Within 10000";
+     else
+     return "above 10000"
+})
+println m1*.value.name;
+
+println "Sol2"
+Map m2=l.groupBy({it.dept})
+m2.each({
+  print "\t"+it.key+" "+it.value.size();
+})
+print "\n"
+
+println "Sol3"
+l.each({
+if(it.age>18 && it.age<35)
+println "Employees with age between 18 and 35:"+it.name
+})
+
+println "Sol4"
+Map m=l.groupBy{it.name[0]};
+println m*.value.name
+m.each{
+print "Name Start with:${it.key} and number of Employees with Age >20 are:"
+println it.value.countBy({it2->it2.age>20}).get(true)
+}
+
+println "Sol5"
+Map m5=l.groupBy({it.dept})
+println m5
