@@ -1,0 +1,173 @@
+q1
+def list=[]
+list[11]= "myelement"
+
+println(list[11])
+
+println list.get(5)
+println list
+
+q2
+list1 = [2,5,10,12,15,20,25]
+
+list1.findAll{it%5==0}
+
+q3
+list1=[11,12,13,14]
+list2=[13,14,15]
+
+list3 = list1-list2
+
+
+q4
+list1=[1,2,3,4]
+list2=[1,2,3,4]
+
+if(list1==list2)
+{
+    println("they have same elements")
+}
+else
+{
+    println("no")
+ }
+ 
+ q5
+ List l =[90,112,43,84,35,60,7,8,9,10]
+List l2 =[]
+println(l)
+
+l.eachWithIndex{p,index->
+if(index%2==1)
+{
+l2.add(p)
+}
+}
+println(l-l2)
+
+q6
+List l=[1,2,3,"element1",0.3,[2,4,6],0..10]
+
+println l*.getClass()
+
+l.get(6).get(9) //here it is going to select the value from index 6 and then will return the value on index 9 
+
+q7
+
+List l= [14,12,11,10,16,15,12,10,99,90,14,16,35]
+
+List l1= l.sort()
+
+
+q8
+class Emp 
+{
+    String Name;
+    int age;
+    int salary;
+}
+Emp e1= new Emp(name:'garima',age:22 , salary:10000)
+Emp e2= new Emp(name:'ruhi', age:20 , salary:1000)
+Emp e3= new Emp(name:'mohi', age:26 , salary:2000)
+Emp e4= new Emp(name:'sohi', age:29 , salary:10000)
+Emp e5= new Emp(name:'bhfhfg', age:32 , salary:9000)
+Emp e6= new Emp(name:'jffh', age:21 , salary:25000) 
+
+List l=[e1,e2,e3,e4,e5,e6]
+
+List l2= l.findAll({Emp e-> 
+    e.salary<5000
+})
+
+l2.each
+{
+    println it.name+" "+it.salary
+}
+
+println "young employee among all\t"+l.min({it.age}).name
+println "older employee among all\t"+l.max({it.age}).name
+println "employee with highest salary=\t"+l.max({it.salary}).name
+
+List l1= l.findAll
+{
+it.name
+}
+print l1*.name
+
+
+l1.reverse()
+
+
+q9
+
+String s = "this string needs to be split"
+println s.tokenize("")// this will print with blank space in b/w wrds
+println s.tokenize()// this will separate each wrd with ,
+
+println s.split("")// this will separate each letter with ,
+println s.split(/\s/)//this will separate each wrd with , same as tokenize()
+
+println s.tokenize(/\s/)//this will skip letter s from every word
+
+
+String s1="are.you.trying.to.split.me"
+
+s1.tokenize(".")// this gives you the empty string
+s1.split(".")// this will split the string as delimeter provided and results an empty string
+
+
+q10
+List l1=["f","a","b","z"]
+
+l1.first()
+l1.last()
+
+
+q11
+List l1= [1,2,3,4,5,6,7,8,9,10]
+List l2= [1,2,3,4,5,6,7,8,9,10]
+
+print "Table of 2 \t" 
+println l1.collect{it.multiply(2)}
+print "Table of 12 \t" 
+println l2.collect{it.multiply(12)}
+
+
+q12
+List l=('a'..'z')
+println l
+
+l.collect({
+if(it>'j')
+print" "+ it
+})
+
+
+q13
+String s= "hello!! my name is garima"
+
+int count=0;
+
+char a= 'a'
+s.each({
+if(a==it)
+count++
+})
+
+println "total length of string is "+s.length()+
+"out of which occurences of" +a+ "is" +count
+
+
+q14
+List l1=(1..100)
+
+l1.each({
+    if(it%3==0)
+    print" "+"fizz"
+    else if(it%5==0)
+    print" "+"buzz"
+    else if(it%15==0)
+     print" "+"fizzbuzz"    
+    else
+     print" "+it
+})
